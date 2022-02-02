@@ -1,0 +1,48 @@
+.btn {
+    cursor: pointer;
+    border-radius: rem(10);
+    border: none;
+    text-transform: capitalize;
+    padding: rem(6) 1rem;
+
+    &--violet {
+        background-color: var(--violet);
+        &:hover,
+        &:focus {
+            background-color: var(--violet-hover);
+        }
+    }
+    &--blue {
+        background-color: var(--blue);
+        &:hover,
+        &:focus {
+            background-color: var(--blue-hover);
+        }
+    }
+    &--filter {
+        background-color: var(--lt-gray-blue);
+        color: var(--blue);
+        font-size: rem(13);
+        font-weight: 600;
+        line-height: rem(19);
+        &:hover,
+        &:focus {
+            background-color: var(--lt-gray-blue-hover);
+        }
+    }
+
+    &--red {
+        background-color: var(--red);
+        &:hover,
+        &:focus {
+            background-color: var(--red-hover);
+        }
+    }
+    &--dk-gray {
+        background-color: var(--dk-gray-blue-2);
+        &:hover,
+        &:focus {
+            background-color: var(--dk-gray-blue-2-hover);
+        }
+    }
+}

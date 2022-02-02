@@ -1,30 +1,39 @@
 <script>
-	export let name;
+	import {onMount} from 'svelte'
+	import {user, requests} from './stores'
+	import  Header  from "./Header.svelte";
+	import  Sidebar  from "./Sidebar.svelte";
+
+	//VARIABLES
+
+	let navIsOpen = false
+
+	// FUNCTIONS
+	async function fetchData(prop){
+		let res = await fetch('./data.json')
+		let data = await res.json()
+		return data[prop]
+	}
+
+	function toggleNav(){
+		navIsOpen = !navIsOpen
+	}
+
+
+
+onMount(async () => {
+	let setUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : await fetchData('currentUser');
+	let setRequests = localStorage.getItem('requests') ? JSON.parse(localStorage.getItem('requests')) : await fetchData('productRequests');
+
+	user.set(setUser)
+	requests.set(setRequests)
+})
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+<Header on:toggleNav={toggleNav} {navIsOpen}/>
+<main class:navIsOpen>
+	{#if navIsOpen}
+	<Sidebar />
+	{/if}
 </main>
 
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>

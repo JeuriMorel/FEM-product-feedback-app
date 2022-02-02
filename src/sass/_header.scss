@@ -1,0 +1,102 @@
+.header{
+    display: flex;
+    position: fixed;
+    inset: 0 0 auto 0;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    padding: rem(16) rem(24);
+    background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, hsl(346, 77%, 61%) 0%, hsl(274, 91%, 59%) 53.09%, hsl(201, 85%, 54%) 100%);
+    z-index: 10000;
+
+    .h1{
+        text-transform: capitalize;
+        color: var(--white);
+        font-weight: 700;
+        font-size: rem(15);
+        letter-spacing: rem(-0.2);
+        line-height: rem(21.68);
+        &__span{
+            display: block;
+            font-weight: 500;
+            font-size: rem(13);
+            line-height: rem(18.79);
+            opacity: 0.75;
+        }
+    }
+
+    &__button{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: rem(20);
+        height: rem(20);
+        background-color: transparent;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    &__span{
+        position: absolute;
+        background-color: var(--white);
+        width: rem(20);
+        height: rem(3);
+        transition: transform 300ms ease-in;
+
+        &--1{
+            top: 0;
+
+            &.navIsOpen{
+                top: 50%;
+                transform: translateY(-50%) rotate(405deg);
+            }
+        }
+        &--2{
+            top: 50%;
+            transform: translateY(-50%);
+            &.navIsOpen{
+                transform: translateX(-500%);
+            }
+        }
+        &--3{
+            bottom: 0;
+            &.navIsOpen{
+                top: 50%;
+                transform: translateY(-50%) rotate(495deg); 
+            }
+        }
+    }
+}
+
+
+.sidebar{
+    display: flex;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    list-style-type: none;
+    gap: rem(24);
+    height: 100%;
+    padding: rem(24);
+    background-color: var(--lt-gray-blue);
+    width: fit-content;
+    z-index: 1000;
+
+    
+
+
+    &__card{
+        border-radius: rem(10);
+        background-color: var(--white);
+        width: rem(223);
+        padding: rem(24) rem(18);
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(14) rem(8);
+    }
+
+    border: 1px solid red;
+}
