@@ -3,6 +3,7 @@
 	import {user, requests} from './stores'
 	import  Header  from "./Header.svelte";
 	import  Sidebar  from "./Sidebar.svelte";
+	import  Suggestions  from "./Suggestions.svelte";
 
 	//VARIABLES
 
@@ -35,5 +36,6 @@ onMount(async () => {
 	{#if navIsOpen}
 	<Sidebar />
 	{/if}
+	<Suggestions />
 </main>
 

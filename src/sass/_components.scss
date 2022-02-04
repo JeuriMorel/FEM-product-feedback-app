@@ -4,6 +4,11 @@
     border: none;
     text-transform: capitalize;
     padding: rem(6) 1rem;
+    font-weight: bold;
+    font-size: rem(13);
+    line-height: rem(19);
+
+    color: var(--btn-text);
 
     &--violet {
         background-color: var(--violet);
@@ -44,5 +49,14 @@
         &:focus {
             background-color: var(--dk-gray-blue-2-hover);
         }
+    }
+
+    &--link {
+        background-color: transparent;
+        color: var(--blue);
+        text-decoration: underline;
+        font-weight: 600;
+        font-size: rem(13);
+        line-height: 19px;
     }
 }

@@ -1,0 +1,79 @@
+.suggestions {
+    width: clamp(rem(327), 87vw, 1400px);
+    margin-inline: auto;
+    font-size: rem(13);
+    line-height: rem(19);
+    letter-spacing: rem(-0.18);
+
+    &__card {
+        background-color: white;
+        margin-bottom: 1rem;
+        padding: rem(24);
+        border-radius: rem(10);
+        display: grid;
+        align-items: center;
+        gap: 1rem;
+        grid-template-areas:
+            "desc desc desc"
+            "desc desc desc"
+            "category empty empty"
+            "upvotes nothing comments";
+    }
+
+    &__text {
+        line-height: rem(19);
+        grid-area: desc;
+    }
+
+    &__title {
+        font-size: inherit;
+        color: var(--dk-gray-blue-2);
+        margin-bottom: rem(9);
+    }
+    &__description {
+        font-weight: 400;
+        color: var(--gray-blue);
+        letter-spacing: initial;
+    }
+    &__comments {
+        display: flex;
+        align-items: center;
+        vertical-align: middle;
+        gap: rem(4);
+        font-weight: 600;
+        grid-area: comments;
+        line-height: inherit;
+        justify-self: flex-end;
+    }
+    &__upvotes {
+        display: flex;
+        align-items: center;
+        gap: rem(10);
+        font-weight: 600;
+        background-color: var(--lt-gray-blue);
+        color: var(--dk-gray-blue-2);
+        grid-area: upvotes;
+        max-width: fit-content;
+        height: 2rem;
+    }
+    &__category {
+        display: block;
+        grid-area: category;
+        margin-top: rem(-8);
+                max-width: fit-content;
+
+    }
+}
+
+.sortbar{
+    display: flex;
+    background-color: var(--dk-gray-blue-2);
+    padding: rem(14) rem(16) rem(14) rem(24);
+    gap: rem(38);
+    justify-content: space-between;
+    align-items: center;
+
+    &__add{
+        margin-left: auto;
+    }
+}
