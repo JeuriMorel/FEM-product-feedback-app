@@ -1,21 +1,19 @@
 <script>
-    import Button from './Components/Button.svelte'
-    import { fly } from 'svelte/transition';
-    import {requests} from './stores'
+    import { fly } from "svelte/transition"
+    import { requests, filters, filterParam } from "./stores"
 
     // VARIABLES
 
-    let content;
-    let type;
-
+    // let filters = ["all", "UI", "UX", "enhancement", "bug", "feature"]
+    let filterValue = $filterParam
 
     $: planned = getProgressCount("planned")
     $: live = getProgressCount("live")
     $: inProgress = getProgressCount("in-progress")
+    $: filterParam.set(filterValue)
 
-
-    function getProgressCount(category){
-        let filteredRequestsArray = [...$requests].filter(request=>{
+    function getProgressCount(category) {
+        let filteredRequestsArray = [...$requests].filter(request => {
             return request.status === category
         })
 
@@ -24,26 +22,40 @@
 
 </script>
 
-
-
-<ul class="sidebar" transition:fly="{{ x: 2000, duration: 300 }}">
-    <li class="sidebar__card sidebar__card--filter" >
-        <Button content={"all"} type={"btn--filter"}></Button>
-        <Button content={"UI"} type={"btn--filter"}></Button>
-        <Button content={"UX"} type={"btn--filter"}></Button>
-        <Button content={"enhancement"} type={"btn--filter"}></Button>
-        <Button content={"bug"} type={"btn--filter"}></Button>
-        <Button content={"feature"} type={"btn--filter"}></Button>
+<aside>
+    <ul class="sidebar" transition:fly={{ x: 2000, duration: 300 }}>
+        <li >
+            <ul class="sidebar__card sidebar__card--filter">
+                {#each $filters as filter}
+                    <li>
+                        <input
+                            type="radio"
+                            bind:group={filterValue}
+                            name="filter"
+                            value={filter}
+                            checked={filter === filterValue}
+                            id={filter}
+                            class="sidebar__radio"
+                        />
+                        <label class="btn btn--filter sidebar__label" for={filter}>{filter}</label>
+                    </li>
+                {/each}
+            </ul>
         </li>
-    <li class="sidebar__card sidebar__card--roadmap">
-        <p class="roadmap__title">roadmap</p>
-        <Button content={"view"} type={"btn--link roadmap__btn"}/>
-        <ul class="roadmap__list">
-            <li class="roadmap__item roadmap__item--peach">planned <span>{planned}</span></li>
-            <li class="roadmap__item roadmap__item--violet">in-Progress <span>{inProgress}</span></li>
-            <li class="roadmap__item roadmap__item--lt-blue">live<span>{live}</span></li>
-        </ul>
-    </li>
-</ul>
-
-
+        <li class="sidebar__card sidebar__card--roadmap">
+            <p class="roadmap__title">roadmap</p>
+            <button class=" btn btn--link roadmap__btn">view</button>
+            <ul class="roadmap__list">
+                <li class="roadmap__item roadmap__item--peach">
+                    planned <span>{planned}</span>
+                </li>
+                <li class="roadmap__item roadmap__item--violet">
+                    in-Progress <span>{inProgress}</span>
+                </li>
+                <li class="roadmap__item roadmap__item--lt-blue">
+                    live<span>{live}</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</aside>

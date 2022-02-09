@@ -34,6 +34,11 @@
         &:focus {
             background-color: var(--lt-gray-blue-hover);
         }
+
+        &.upvoted {
+            color: var(--lt-gray-blue);
+            background-color: var(--blue);
+        }
     }
 
     &--red {
@@ -58,5 +63,9 @@
         font-weight: 600;
         font-size: rem(13);
         line-height: 19px;
+    }
+
+    &--clear {
+        background-color: transparent;
     }
 }

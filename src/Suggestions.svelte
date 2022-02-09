@@ -1,17 +1,16 @@
 <script>
+    import { suggestions, filterParam } from "./stores"
+    import SuggestionCard from "./SuggestionsCard.svelte"
 
-    import {requests} from "./stores"
-    import SuggestionCard from './SuggestionsCard.svelte'
-    import Sortbar from "./Sortbar.svelte"
+$: filteredSuggestions = $filterParam === "all" ? $suggestions : $suggestions.filter(currentSuggestion => currentSuggestion.category === $filterParam
+)
 
-    $: suggestions = [...$requests].filter(request => request.status === "suggestion")
 </script>
 
-
 <section class="suggestions">
-    <Sortbar />
+    
+        {#each filteredSuggestions as suggestion (suggestion.id)}
+            <SuggestionCard info={suggestion} />
+        {/each}
 
-    {#each suggestions as suggestion}
-        <SuggestionCard info={suggestion}/>
-    {/each}
 </section>
