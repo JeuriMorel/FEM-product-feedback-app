@@ -1,10 +1,10 @@
 .suggestions {
-    width: clamp(rem(327), 87vw, 1400px);
     margin-inline: auto;
     font-size: rem(13);
     line-height: rem(19);
     letter-spacing: rem(-0.18);
     padding-top: 2rem;
+    width: clamp(rem(327), 90vw, rem(825));
 
     &__card {
         background-color: white;
@@ -20,25 +20,28 @@
             "category empty empty"
             "upvotes nothing comments";
         cursor: pointer;
-        &:hover{
-            .suggestions__title{
+        &:hover {
+            .suggestions__title {
                 color: var(--blue);
             }
         }
     }
 
     &__text {
-        line-height: rem(19);
         grid-area: desc;
     }
 
     &__title {
-        font-size: inherit;
+        font-size: clamp(rem(13), 2vw, rem(18));
+        line-height: clamp(rem(19), 3vw, rem(26));
+        letter-spacing: clamp(rem(-0.18), -0.04vw, rem(-0.25));
         color: var(--dk-gray-blue-2);
         margin-bottom: rem(9);
     }
     &__description {
         font-weight: 400;
+        font-size: clamp(rem(13), 2vw, rem(16));
+        line-height: clamp(rem(19), 3vw, rem(23));
         color: var(--gray-blue);
         letter-spacing: initial;
     }
@@ -59,12 +62,52 @@
         grid-area: upvotes;
         max-width: fit-content;
         height: 2rem;
+        letter-spacing: rem(-0.180556);
+        color: var(--dk-gray-blue-2);
     }
     &__category {
         display: block;
         grid-area: category;
         margin-top: rem(-8);
         max-width: fit-content;
+    }
+
+    &__empty {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: rem(10);
+        padding-inline: clamp(rem(25), 18vw, rem(206));
+        padding-block: clamp(rem(76), 14vw, rem(110));
+        margin-bottom: clamp(rem(50), 7vw, rem(129));
+
+        &-container{
+            width: clamp(rem(278), 20vw, rem(410));
+            height: clamp(rem(308), 30vw, rem(379));
+            text-align: center;
+        }
+        &-img{
+            margin-bottom: rem(39);
+        }
+
+        &--title {
+            // font-weight: bold;
+            font-size: rem(18);
+            line-height: rem(26);
+            // text-align: center;
+            letter-spacing: rem(-0.25);
+            margin-bottom: rem(14);
+            color: var(--dk-gray-blue-2);
+        }
+        &--para {
+            font-size: rem(13);
+            line-height: rem(19);
+            // text-align: center;
+            color: var(--gray-blue);
+            margin-bottom: rem(24);
+        }
     }
 }
 
@@ -77,13 +120,13 @@
     justify-content: space-between;
     align-items: center;
     color: var(--btn-text);
-    
 
     &__icon {
         display: none;
     }
     &__suggestions {
         display: none;
+        text-transform: capitalize;
         font-weight: bold;
         font-size: rem(18);
         line-height: rem(26);

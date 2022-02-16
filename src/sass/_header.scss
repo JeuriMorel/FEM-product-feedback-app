@@ -1,31 +1,57 @@
 .header {
+    --gap: 1.5rem;
+
+    &--mobile {
+        position: fixed;
+        inset: 0 0 auto 0;
+        justify-content: space-between;
+        align-items: center;
+        height: var(--header-height);
+        padding: rem(16) rem(24);
+        background: radial-gradient(
+            128.88% 128.88% at 103.9% -10.39%,
+            hsl(346, 77%, 61%) 0%,
+            hsl(274, 91%, 59%) 53.09%,
+            hsl(201, 85%, 54%) 100%
+        );
+        z-index: 10000;
+    }
     display: flex;
-    position: fixed;
-    inset: 0 0 auto 0;
-    justify-content: space-between;
-    align-items: center;
-    height: var(--header-height);
-    padding: rem(16) rem(24);
-    background: radial-gradient(
-        128.88% 128.88% at 103.9% -10.39%,
-        hsl(346, 77%, 61%) 0%,
-        hsl(274, 91%, 59%) 53.09%,
-        hsl(201, 85%, 54%) 100%
-    );
-    z-index: 10000;
+
+    &--large {
+        display: none;
+        height: fit-content;
+        gap: rem(10);
+        gap: var(--gap);
+        justify-content: space-between;
+        margin-top: rem(56);
+    }
+
+    &__card {
+        position: relative;
+        padding: rem(24);
+        flex-grow: 1;
+        background: radial-gradient(
+            128.88% 128.88% at 103.9% -10.39%,
+            #e84d70 0%,
+            #a337f6 53.09%,
+            #28a7ed 100%
+        );
+        border-radius: rem(10);
+    }
 
     .h1 {
         text-transform: capitalize;
         color: var(--white);
         font-weight: 700;
-        font-size: rem(15);
+        font-size: clamp(rem(15), 14vw, rem(20));
         letter-spacing: rem(-0.2);
-        line-height: rem(21.68);
+        line-height: clamp(rem(21.68), 4vw, rem(29));
         &__span {
             display: block;
             font-weight: 500;
-            font-size: rem(13);
-            line-height: rem(18.79);
+            font-size: clamp(rem(13), 2vw, rem(15));
+            line-height: clamp(rem(18.79), 3vw, rem(22));
             opacity: 0.75;
         }
     }
@@ -86,7 +112,7 @@
     right: 0;
     flex-direction: column;
     list-style-type: none;
-    gap: rem(24);
+    gap: var(--gap, 1.5rem);
     height: 100%;
     padding: rem(24);
     background-color: var(--lt-gray-blue);
@@ -102,13 +128,19 @@
         display: flex;
         flex-wrap: wrap;
         gap: rem(14) rem(8);
+        // height: 100%;
     }
 
     &__radio {
-        display: none;
+        position: absolute;
+        z-index: -1;
         &:checked + label {
             color: var(--lt-gray-blue);
             background-color: var(--blue);
+        }
+
+        &-wrapper {
+            position: relative;
         }
     }
     &__label {
@@ -137,11 +169,12 @@
     &__item {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         color: var(--gray-blue);
+        line-height: 0px;
 
         &::before {
             content: "\2022";
-            vertical-align: -50%;
             font-weight: 700;
             font-size: 2em;
             margin-right: 1rem;

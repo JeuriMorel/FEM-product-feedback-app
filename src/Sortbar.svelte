@@ -1,5 +1,5 @@
 <script>
-    import { suggestions } from "./stores"
+    import { suggestions, filterParam } from "./stores"
     import { fly, fade } from "svelte/transition"
     import {getNumberOfComments} from "./getNumberOfComments"
 
@@ -16,6 +16,16 @@
 
     $: selectedOption = sortOptions[optionsIndex]
     $: sortSuggestions(selectedOption)
+
+
+    // REMOVE LATER
+    $: filteredSuggestions =
+        $filterParam === "all"
+            ? $suggestions
+            : $suggestions.filter(
+                  currentSuggestion =>
+                      currentSuggestion.category === $filterParam
+              )
 
     function sortSuggestions() {
         if (selectedOption === "most upvotes") {
@@ -41,7 +51,7 @@
         alt="bulb"
         class="sortbar__icon"
     />
-    <p class="sortbar__suggestions">{suggestions.length} suggestions</p>
+    <p class="sortbar__suggestions">{filteredSuggestions.length} suggestions</p>
     <button
         class="sortbar__menu-toggle btn"
         on:click={() => {

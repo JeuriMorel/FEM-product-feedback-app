@@ -8,6 +8,7 @@
 
 :root {
     --header-height: 4.5rem;
+    --avatar-height: 2.5rem;
 
     --violet: hsla(282, 83%, 52%, 1);
     --violet-hover: hsla(282, 90%, 66%, 1);
@@ -21,11 +22,14 @@
     --dk-gray-blue-2: hsla(231, 33%, 34%, 1);
     --dk-gray-blue-2-hover: hsl(230, 100%, 91%);
     --gray-blue: hsla(224, 20%, 49%, 1);
+    --gray-blue-25: hsla(224, 20%, 49%, 0.25);
+    --gray-blue-1: hsla(224, 20%, 49%, 0.1);
     --peach: hsla(14, 83%, 74%, 1);
     --lt-blue: hsla(204, 94%, 68%, 1);
     --red: hsla(0, 67%, 53%, 1);
     --red-hover: hsla(0, 69%, 72%, 1);
     --btn-text: hsla(230, 86%, 97%, 1);
+    --input-bg: hsla(230, 60%, 98%, 1);
 }
 
 html {
@@ -35,6 +39,10 @@ html {
 body {
     min-height: 100vh;
     background-color: var(--lt-gray-blue);
+}
+
+h2, h3, h4, h5, h6{
+    color: var(--dk-gray-blue-2);
 }
 
 ul {

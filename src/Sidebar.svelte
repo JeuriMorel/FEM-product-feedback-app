@@ -7,16 +7,16 @@
     // let filters = ["all", "UI", "UX", "enhancement", "bug", "feature"]
     let filterValue = $filterParam
 
-    $: planned = getProgressCount("planned")
-    $: live = getProgressCount("live")
-    $: inProgress = getProgressCount("in-progress")
+    $: planned = getProgressCount("planned", [...$requests])
+    $: live = getProgressCount("live", [...$requests])
+    $: inProgress = getProgressCount("in-progress", [...$requests])
     $: filterParam.set(filterValue)
 
-    function getProgressCount(category) {
-        let filteredRequestsArray = [...$requests].filter(request => {
+    function getProgressCount(category, array) {
+        let filteredRequestsArray = array.filter(request => {
             return request.status === category
         })
-
+        
         return filteredRequestsArray.length
     }
 
@@ -27,7 +27,7 @@
         <li >
             <ul class="sidebar__card sidebar__card--filter">
                 {#each $filters as filter}
-                    <li>
+                    <li class="sidebar__radio-wrapper">
                         <input
                             type="radio"
                             bind:group={filterValue}

@@ -1,0 +1,90 @@
+@media screen and (min-width: 700px){
+    :root{
+        --header-height: 1.5rem;
+    }
+    .sortbar{
+        border-radius: rem(10);
+        &__icon{
+            display: inline-block;
+        }
+        &__suggestions{
+            display: inline-block;
+        }
+    }
+    .header{
+        --gap: 0.625rem;
+        &--mobile{
+            display: none;
+        }
+        &--large{
+            display: flex;
+        }
+    }
+    .sidebar{
+        position: relative;
+        padding: 0;
+        flex-direction: row;
+
+        &__card{
+            height: 100%;
+            &--filter{
+                padding: rem(24) rem(18) rem(36) rem(24);
+            }
+        }
+    }
+    .suggestions{
+        &__card{
+            padding: rem(28) rem(32);
+            grid-template-columns: 60px repeat(4, auto);
+            grid-template-areas:
+            "upvotes desc desc desc empty"
+            "upvotes desc desc desc comments"
+            "nothing category null null null";
+        }
+        &__upvotes{
+            flex-direction: column;
+            width: rem(40);
+            height: auto;
+            padding: rem(14) rem(8) rem(8);
+            gap: 0.5rem;
+            max-width: none;
+        }
+    }
+    .h1{
+        position: absolute;
+        bottom: rem(24);
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    :root{
+        --header-height: 5.875rem;
+    }
+    body{
+        &.onMainPage{
+            display: flex;
+            margin-inline: auto;
+            justify-content: center;
+            gap: rem(30);
+        }
+    }
+    .header{
+        flex-direction: column;
+        width: fit-content;
+        margin: var(--header-height) 0 0;
+        height: rem(529);
+
+    }
+    .sidebar{
+        flex-direction: column;
+
+        &__card{
+            width: rem(255);
+            padding: 19px 24px 24px;
+            &--filter{
+                padding-top: rem(24);
+            }
+        }
+    }
+}

@@ -7,8 +7,11 @@
     font-weight: bold;
     font-size: rem(13);
     line-height: rem(19);
-
     color: var(--btn-text);
+
+    &--padded {
+        padding: 0.65625rem 1.0625rem;
+    }
 
     &--violet {
         background-color: var(--violet);
@@ -38,6 +41,11 @@
         &.upvoted {
             color: var(--lt-gray-blue);
             background-color: var(--blue);
+            
+            path{
+                stroke: var(--lt-gray-blue);
+            }
+
         }
     }
 
@@ -67,5 +75,23 @@
 
     &--clear {
         background-color: transparent;
+    }
+}
+
+.container {
+    margin-inline: auto;
+
+    &--main {
+        width: clamp(rem(375), 90vw, rem(825));
+    }
+
+    &--header {
+        width: clamp(rem(375), 90vw, rem(825));
+    }
+    &--narrow{
+        width: clamp(20.4375rem, 90vw, 51.5625rem);
+    }
+    &--narrow-sm{
+        width: clamp(20.4375rem, 90vw, 45.625rem);
     }
 }
