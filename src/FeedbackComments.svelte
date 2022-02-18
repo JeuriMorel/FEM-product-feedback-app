@@ -28,7 +28,7 @@
 
         <div class="feedback__replies-container">
             {#each replies as reply}
-                <Reply {reply}/>
+                <Reply {id} {reply} on:add={updateReplies}/>
             {/each}
         </div>
     </article>

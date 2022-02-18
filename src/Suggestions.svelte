@@ -2,6 +2,7 @@
     import { suggestions, filterParam } from "./stores"
     import SuggestionCard from "./SuggestionsCard.svelte"
 
+
     $: filteredSuggestions =
         $filterParam === "all"
             ? $suggestions
@@ -13,7 +14,6 @@
 
 <section class="suggestions">
     {#if filteredSuggestions.length}
-        <!-- content here -->
         {#each filteredSuggestions as suggestion (suggestion.id)}
             <SuggestionCard info={suggestion}/>
         {/each}

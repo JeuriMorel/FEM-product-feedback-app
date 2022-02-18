@@ -91,6 +91,9 @@
     &--narrow{
         width: clamp(20.4375rem, 90vw, 51.5625rem);
     }
+    &--narrow-xs{
+        width: clamp(20.4375rem, 90vw, 33.75rem);
+    }
     &--narrow-sm{
         width: clamp(20.4375rem, 90vw, 45.625rem);
     }

@@ -41,7 +41,11 @@ body {
     background-color: var(--lt-gray-blue);
 }
 
-h2, h3, h4, h5, h6{
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: var(--dk-gray-blue-2);
 }
 
@@ -68,4 +72,8 @@ main {
             max-height: 100%;
         }
     }
+}
+
+textarea {
+    resize: none;
 }

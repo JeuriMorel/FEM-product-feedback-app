@@ -48,8 +48,7 @@
             formIsVisible = !formIsVisible
         }}
     >
-        <input
-            type="text"
+        <textarea
             class="feedback__form-input"
             maxlength="250"
             bind:value={replyString}

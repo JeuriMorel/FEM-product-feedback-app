@@ -1,7 +1,6 @@
 <script>
-    import { current_component } from "svelte/internal"
     import { getNumberOfComments } from "./getNumberOfComments"
-    import { suggestions, onMainPage, feedback } from "./stores"
+    import { suggestions,  feedback,  currentPage } from "./stores"
 
     export let info
 
@@ -26,8 +25,8 @@
     }
 
     function goToFeedbackDetail() {
-        onMainPage.set(false)
         feedback.set(info)
+        currentPage.set('feedback--detail')
     }
 </script>
 

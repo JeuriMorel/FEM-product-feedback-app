@@ -1,6 +1,6 @@
 .feedback {
     &__nav {
-        margin-block: rem(24);
+        margin-block: clamp(rem(24), 7vw, rem(80)) rem(24);
         display: flex;
         justify-content: space-between;
     }
@@ -14,7 +14,7 @@
         margin-block: 0;
     }
     &__comments {
-        padding: rem(24);
+        padding: clamp(rem(24), 7vw, rem(80)) rem(24);
         border-radius: rem(10);
         background-color: white;
         margin-bottom: rem(24);
@@ -64,12 +64,9 @@
         padding: rem(24);
         margin-bottom: clamp(rem(88), 16vw, rem(137));
 
-        &--reply{
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+        &--reply {
             margin-bottom: 0;
-            padding-bottom: 0;
+            padding: 0;
         }
 
         &-header {
@@ -108,11 +105,9 @@
             line-height: 22px;
             color: #647196;
         }
-        &-btn{
+        &-btn {
             min-width: fit-content;
         }
-
-        
     }
 }
 
@@ -142,5 +137,143 @@
     &__reply {
         color: var(--blue);
         margin-left: auto;
+    }
+}
+
+.addFeedback {
+    position: relative;
+    background-color: white;
+    border-radius: rem(10);
+    padding: rem(44) rem(24) rem(24);
+    margin-block: clamp(rem(55), 9vw, rem(68)) rem(80);
+
+    &__form {
+        &-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 0;
+        transform: translateY(-50%);
+    }
+
+    &__arrow {
+        transition: transform 200ms ease-in;
+        path {
+            stroke: var(--blue);
+        }
+        &.menuIsOpen {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__h1 {
+        text-transform: capitalize;
+        font-size: clamp(rem(18), 5vw, rem(24));
+        line-height: clamp(rem(26), 7vw, rem(35));
+
+        letter-spacing: clamp(rem(-0.25), -0.06vw, rem(-0.33));
+
+        color: #3a4374;
+    }
+    &__radio {
+        position: absolute;
+        z-index: -1;
+        &:checked + label {
+            .addFeedback__check {
+                opacity: 1;
+            }
+        }
+
+        &-wrapper {
+            position: relative;
+        }
+    }
+    &__h2 {
+        text-transform: capitalize;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 19px;
+        letter-spacing: -0.180556px;
+        color: #3a4374;
+    }
+    &__label {
+        text-transform: lowercase;
+        font-weight: normal;
+        font-size: rem(13);
+        line-height: rem(19);
+        color: var(--dk-gray-blue);
+        display: block;
+        margin-bottom: 1rem;
+
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        border-radius: rem(5);
+        border: none;
+        background: #f7f8fd;
+        height: rem(48);
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 22px;
+        margin-bottom: rem(24);
+        padding: 1rem;
+        color: #3a4374;
+
+        &--textarea {
+            margin-bottom: rem(40);
+            height: rem(120);
+        }
+    }
+    &__list {
+        position: absolute;
+        width: 100%;
+        border-radius: rem(10);
+        top: rem(102);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.350492);
+        z-index: 10000;
+
+        &-wrapper {
+            position: relative;
+        }
+
+        &-item {
+            background-color: #ffffff;
+            position: relative;
+            &:not(:last-of-type) {
+                border-bottom: 1px solid var(--btn-text);
+            }
+        }
+
+        &-btn {
+            color: hsla(224, 20%, 49%, 1);
+            width: 100%;
+            height: 100%;
+            font-weight: normal;
+            font-size: 1rem;
+            line-height: rem(23);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: rem(12) rem(24);
+
+            &:hover {
+                color: var(--violet);
+            }
+        }
+    }
+    &__check {
+        opacity: 0;
     }
 }

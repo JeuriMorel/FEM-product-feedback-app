@@ -1,47 +1,47 @@
-@media screen and (min-width: 700px){
-    :root{
+@media screen and (min-width: 700px) {
+    :root {
         --header-height: 1.5rem;
     }
-    .sortbar{
+    .sortbar {
         border-radius: rem(10);
-        &__icon{
+        &__icon {
             display: inline-block;
         }
-        &__suggestions{
+        &__suggestions {
             display: inline-block;
         }
     }
-    .header{
+    .header {
         --gap: 0.625rem;
-        &--mobile{
+        &--mobile {
             display: none;
         }
-        &--large{
+        &--large {
             display: flex;
         }
     }
-    .sidebar{
+    .sidebar {
         position: relative;
         padding: 0;
         flex-direction: row;
 
-        &__card{
+        &__card {
             height: 100%;
-            &--filter{
+            &--filter {
                 padding: rem(24) rem(18) rem(36) rem(24);
             }
         }
     }
-    .suggestions{
-        &__card{
+    .suggestions {
+        &__card {
             padding: rem(28) rem(32);
             grid-template-columns: 60px repeat(4, auto);
             grid-template-areas:
-            "upvotes desc desc desc empty"
-            "upvotes desc desc desc comments"
-            "nothing category null null null";
+                "upvotes desc desc desc empty"
+                "upvotes desc desc desc comments"
+                "nothing category null null null";
         }
-        &__upvotes{
+        &__upvotes {
             flex-direction: column;
             width: rem(40);
             height: auto;
@@ -50,41 +50,57 @@
             max-width: none;
         }
     }
-    .h1{
+    .h1 {
         position: absolute;
         bottom: rem(24);
         margin: 0;
     }
+    .feedback {
+        &__form {
+            &--reply {
+                display: flex;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+        }
+    }
+    .addFeedback{
+        &__form{
+            &-btns{
+                flex-direction: row-reverse;
+            }
+        }
+    }
 }
 
-@media screen and (min-width: 1200px){
-    :root{
+@media screen and (min-width: 1200px) {
+    :root {
         --header-height: 5.875rem;
     }
-    body{
-        &.onMainPage{
+    body {
+        &.onMainPage {
             display: flex;
             margin-inline: auto;
             justify-content: center;
             gap: rem(30);
         }
     }
-    .header{
+    .header {
         flex-direction: column;
         width: fit-content;
         margin: var(--header-height) 0 0;
         height: rem(529);
-
     }
-    .sidebar{
+    .sidebar {
         flex-direction: column;
 
-        &__card{
+        &__card {
             width: rem(255);
             padding: 19px 24px 24px;
-            &--filter{
+            &--filter {
                 padding-top: rem(24);
             }
         }
     }
+    
 }

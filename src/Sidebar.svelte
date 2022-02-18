@@ -4,7 +4,6 @@
 
     // VARIABLES
 
-    // let filters = ["all", "UI", "UX", "enhancement", "bug", "feature"]
     let filterValue = $filterParam
 
     $: planned = getProgressCount("planned", [...$requests])

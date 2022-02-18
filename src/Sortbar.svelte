@@ -1,7 +1,17 @@
 <script>
-    import { suggestions, filterParam } from "./stores"
+    import { suggestions, filterParam, currentPage } from "./stores"
     import { fly, fade } from "svelte/transition"
     import {getNumberOfComments} from "./getNumberOfComments"
+
+    // import { createEventDispatcher } from "svelte"
+    
+
+    // const dispatch = createEventDispatcher()
+
+    function addFeedback() {
+        // dispatch("goToAddFeedback")
+        currentPage.set('feedback--new')
+    }
 
 
     //VARIABLES
@@ -106,5 +116,5 @@
             </ul>
         {/if}
     </button>
-    <button class="btn btn--violet sortbar__add"> + add feedback </button>
+    <button class="btn btn--violet sortbar__add" on:click={addFeedback}> + add feedback </button>
 </div>
