@@ -1,4 +1,4 @@
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 689px) {
     :root {
         --header-height: 1.5rem;
     }
@@ -64,11 +64,17 @@
             }
         }
     }
-    .addFeedback{
-        &__form{
-            &-btns{
+    .addFeedback {
+        &__form {
+            &-btns {
                 flex-direction: row-reverse;
             }
+        }
+    }
+    .roadmap {
+        &__header {
+            border-radius: rem(10);
+            margin-top: clamp(rem(56), 5vw, rem(78));
         }
     }
 }
@@ -102,5 +108,4 @@
             }
         }
     }
-    
 }

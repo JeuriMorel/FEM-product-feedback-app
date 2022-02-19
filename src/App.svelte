@@ -5,7 +5,7 @@
         requests,
         suggestions,
         feedback,
-        currentPage
+        currentPage,
     } from "./stores"
     import Header from "./Header.svelte"
     import Sidebar from "./Sidebar.svelte"
@@ -15,6 +15,7 @@
     import FeedbackComments from "./FeedbackComments.svelte"
     import FeedbackNav from "./FeedbackNav.svelte"
     import FeedbackPage from "./FeedbackPage.svelte"
+    import Roadmap from "./Roadmap.svelte"
     import { getNumberOfComments } from "./getNumberOfComments"
 
     //VARIABLES
@@ -22,8 +23,12 @@
     let navIsOpen = false
     let replyString = ""
 
-    $: isOnMainPage = $currentPage === 'suggestions'
-    $: isOnFeedbackPage = ['feedback--new', 'feedback--detail', 'feedback--edit'].includes($currentPage)
+    $: isOnMainPage = $currentPage === "suggestions"
+    $: isOnFeedbackPage = [
+        "feedback--new",
+        "feedback--detail",
+        "feedback--edit",
+    ].includes($currentPage)
 
     $: isOnMainPage
         ? document.body.classList.add("onMainPage")
@@ -85,9 +90,9 @@
     <FeedbackNav />
     <main
         class="feedback__main container container--narrow-xs"
-        class:container--narrow-sm={$currentPage === 'feedback--detail'}
+        class:container--narrow-sm={$currentPage === "feedback--detail"}
     >
-        {#if $currentPage === 'feedback--detail'}
+        {#if $currentPage === "feedback--detail"}
             <SuggestionCard info={$feedback} />
             <section class="feedback__comments">
                 <h2>{getNumberOfComments($feedback.comments)} Comments</h2>
@@ -120,6 +125,8 @@
             <FeedbackPage />
         {/if}
     </main>
+{:else if $currentPage === "roadmap"}
+    <Roadmap />
 {/if}
 
 <!-- name[0]?.toUpperCase() + name.slice(1) -->

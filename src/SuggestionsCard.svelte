@@ -3,6 +3,7 @@
     import { suggestions,  feedback,  currentPage } from "./stores"
 
     export let info
+    export let isRoadmapCard = false
 
     $: ({
         title,
@@ -30,7 +31,14 @@
     }
 </script>
 
-<article class="suggestions__card" on:click={goToFeedbackDetail}>
+<article class="suggestions__card" on:click={goToFeedbackDetail} class:roadmap__card={isRoadmapCard}
+class:roadmap__card--planned={info.status === "planned"}
+class:roadmap__card--in-progress={info.status === "in-progress"}
+class:roadmap__card--live={info.status === "live"}
+>
+    <!-- {#if isRoadmapCard}
+        <p>hi</p>
+    {/if} -->
     <div class="suggestions__text">
         <h2 class="suggestions__title">{title}</h2>
         <p class="suggestions__description">{description}</p>

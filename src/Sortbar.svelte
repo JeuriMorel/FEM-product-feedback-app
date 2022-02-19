@@ -116,5 +116,7 @@
             </ul>
         {/if}
     </button>
-    <button class="btn btn--violet sortbar__add" on:click={addFeedback}> + add feedback </button>
+    <button class="btn btn--violet sortbar__add" on:click={()=>{
+        currentPage.set('feedback--new')
+    }}> + add feedback </button>
 </div>

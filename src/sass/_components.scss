@@ -84,6 +84,10 @@
     &--main {
         width: clamp(rem(375), 90vw, rem(825));
     }
+    &--roadmap {
+        width: clamp(rem(689), 90vw, rem(1110));
+        max-width: 100%;
+    }
 
     &--header {
         width: clamp(rem(375), 90vw, rem(825));

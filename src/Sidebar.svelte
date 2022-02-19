@@ -1,6 +1,6 @@
 <script>
     import { fly } from "svelte/transition"
-    import { requests, filters, filterParam } from "./stores"
+    import { requests, filters, filterParam, currentPage } from "./stores"
 
     // VARIABLES
 
@@ -43,7 +43,9 @@
         </li>
         <li class="sidebar__card sidebar__card--roadmap">
             <p class="roadmap__title">roadmap</p>
-            <button class=" btn btn--link roadmap__btn">view</button>
+            <button class=" btn btn--link roadmap__btn" on:click={()=>{
+                currentPage.set('roadmap')
+            }}>view</button>
             <ul class="roadmap__list">
                 <li class="roadmap__item roadmap__item--peach">
                     planned <span>{planned}</span>
