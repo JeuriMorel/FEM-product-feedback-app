@@ -33,7 +33,7 @@
         }
     }
     .suggestions {
-        &__card {
+        &__card:where(:not(.roadmap__card)) {
             padding: rem(28) rem(32);
             grid-template-columns: 60px repeat(4, auto);
             grid-template-areas:
@@ -76,6 +76,22 @@
             border-radius: rem(10);
             margin-top: clamp(rem(56), 5vw, rem(78));
         }
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: 1fr;
+            gap: clamp(0.625rem, calc(-0.8036rem + 2.9762vw), 1.875rem);
+            position: static;
+        }
+        &__article {
+            padding: 0;
+            height: 100%;
+        }
+        &__radios {
+            display: none;
+        }
+        &__card{
+            height: rem(325);
+        }
     }
 }
 
@@ -106,6 +122,11 @@
             &--filter {
                 padding-top: rem(24);
             }
+        }
+    }
+    .roadmap{
+        &__card{
+            height: auto;
         }
     }
 }

@@ -45,11 +45,15 @@
         navIsOpen = !navIsOpen
     }
 
+    function capitalize(string) {
+        return string[0]?.toUpperCase() + string.slice(1)
+    }
+
     function addCommentToArray() {
         if (!replyString) return
 
         let comment = {
-            content: replyString,
+            content: capitalize(replyString),
             user: $user,
         }
         $feedback.comments = $feedback.comments

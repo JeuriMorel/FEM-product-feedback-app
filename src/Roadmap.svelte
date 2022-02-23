@@ -1,24 +1,13 @@
 <script>
     import { currentPage, feedback, requests } from "./stores"
-    import { onMount } from "svelte"
     import SuggestionCard from "./SuggestionsCard.svelte"
 
     let statusTypes = ["planned", "in-progress", "live"]
 
     let radioStatus = statusTypes[1]
 
-    $: scrollGrid(radioStatus)
-
-    function scrollGrid(status) {
-        if (!status) return
-        let element = document.querySelector(`.roadmap__article--${status}`)
-        if (!element) return
-        element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "nearest",
-        })
-    }
+    $: leftGridValue =
+        statusTypes.findIndex(status => status === radioStatus) * -100
 
     function getProgressCount(category, array) {
         let filteredRequestsArray = array.filter(request => {
@@ -55,9 +44,6 @@
             subtitle: "Released features",
         },
     ]
-    onMount(() => {
-        scrollGrid(radioStatus)
-    })
 </script>
 
 <header class="roadmap__header container container--roadmap">
@@ -114,7 +100,10 @@
             </div>
         {/each}
     </div>
-    <section class="roadmap__grid">
+    <section
+        class="roadmap__grid"
+        style="left: {leftGridValue}vw;"
+    >
         {#each statusTypes as status}
             <article class="roadmap__article roadmap__article--{status}">
                 <h2 class="roadmap__h2">

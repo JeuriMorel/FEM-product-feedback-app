@@ -1,5 +1,5 @@
 <script>
-    import { suggestions, filterParam } from "./stores"
+    import { suggestions, filterParam, currentPage } from "./stores"
     import SuggestionCard from "./SuggestionsCard.svelte"
 
 
@@ -106,7 +106,9 @@
                 </h3>
                 <p class="suggestions__empty--para">Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.</p>
             </div>
-            <button class="suggestions__btn btn btn--violet btn--padded">+ add feedback</button>
+            <button class="suggestions__btn btn btn--violet btn--padded" on:click={()=>{
+        currentPage.set('feedback--new')
+    }}>+ add feedback</button>
         </div>
     </article>
         

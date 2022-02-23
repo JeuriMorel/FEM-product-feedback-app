@@ -1,5 +1,7 @@
 .roadmap {
     margin-top: 0;
+    overflow-x: hidden;
+
     &__header {
         display: flex;
         justify-content: space-between;
@@ -92,13 +94,16 @@
         }
     }
     &__grid {
+        position: relative;
         display: grid;
         grid-template-columns: repeat(3, 100%);
-        overflow-x: hidden;
+        // overflow-x: hidden;
         margin-top: rem(24);
+        // gap: 10vw;
+        transition: left 200ms;
     }
 
-    &__article{
+    &__article {
         padding: rem(24);
     }
     &__h2 {
@@ -115,18 +120,17 @@
         color: #647196;
         margin-bottom: rem(24);
     }
-    &__card{
+    &__card {
         position: relative;
         overflow: hidden;
 
-        &::before{
-            content: '';
+        &::before {
+            content: "";
             position: absolute;
             inset: 0 0 auto 0;
             height: 6px;
             background-color: var(--status-color);
         }
-        
 
         &--in-progress {
             --status-color: var(--violet);
@@ -137,7 +141,29 @@
         &--live {
             --status-color: var(--lt-blue);
         }
+
+        
+    }
+
+    &__status {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--gray-blue);
+        font-size: rem(13);
+        line-height: rem(19);
+        margin-right: auto;
+        gap: 0.5rem;
+        text-transform: capitalize;
+
+        &::before {
+            content: "\2022";
+            font-weight: 700;
+            font-size: 2.5rem;
+            height: 0.5rem;
+            width: 0.5rem;
+            display: inline-block;
+            color: var(--status-color);
+        }
     }
 }
-
-

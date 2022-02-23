@@ -11,6 +11,11 @@
         })
     }
 
+    function capitalize(string) {
+        return string[0]?.toUpperCase() + string.slice(1)
+    }
+
+
     export let commentUser
     export let content = ""
     export let id
@@ -39,7 +44,7 @@
         class="feedback__form feedback__form--reply"
         on:submit|preventDefault={() => {
             let newReply = {
-                content: replyString,
+                content: capitalize(replyString),
                 replyingTo: username,
                 user: $user,
             }

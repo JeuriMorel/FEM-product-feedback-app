@@ -11,8 +11,14 @@
         })
     }
 
+    function capitalize(string) {
+        return string[0]?.toUpperCase() + string.slice(1)
+    }
+
     export let reply
     export let id
+
+    
 
     let { user: replyUser, content, replyingTo } = reply
     let replyString = ""
@@ -42,7 +48,7 @@
             class="feedback__form feedback__form--reply"
             on:submit|preventDefault={() => {
                 let newReply = {
-                    content: replyString,
+                    content: capitalize(replyString),
                     replyingTo: replyUser.username,
                     user: $user,
                 }
@@ -51,12 +57,6 @@
                 formIsVisible = !formIsVisible
             }}
         >
-            <!-- <input
-                type="text"
-                class="feedback__form-input"
-                maxlength="250"
-                bind:value={replyString}
-            /> -->
             <textarea class="feedback__form-input" maxlength="250"
                 bind:value={replyString}></textarea>
             <button class="btn btn--violet btn--padded feedback__form-btn"

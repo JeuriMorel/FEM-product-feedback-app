@@ -1,6 +1,6 @@
 <script>
     import { getNumberOfComments } from "./getNumberOfComments"
-    import { suggestions,  feedback,  currentPage } from "./stores"
+    import { suggestions, feedback, currentPage } from "./stores"
 
     export let info
     export let isRoadmapCard = false
@@ -27,18 +27,21 @@
 
     function goToFeedbackDetail() {
         feedback.set(info)
-        currentPage.set('feedback--detail')
+        currentPage.set("feedback--detail")
     }
 </script>
 
-<article class="suggestions__card" on:click={goToFeedbackDetail} class:roadmap__card={isRoadmapCard}
-class:roadmap__card--planned={info.status === "planned"}
-class:roadmap__card--in-progress={info.status === "in-progress"}
-class:roadmap__card--live={info.status === "live"}
+<article
+    class="suggestions__card"
+    on:click={goToFeedbackDetail}
+    class:roadmap__card={isRoadmapCard}
+    class:roadmap__card--planned={info.status === "planned"}
+    class:roadmap__card--in-progress={info.status === "in-progress"}
+    class:roadmap__card--live={info.status === "live"}
 >
-    <!-- {#if isRoadmapCard}
-        <p>hi</p>
-    {/if} -->
+    {#if isRoadmapCard}
+        <p class="roadmap__status">{info.status.replace('-', ' ')}</p>
+    {/if}
     <div class="suggestions__text">
         <h2 class="suggestions__title">{title}</h2>
         <p class="suggestions__description">{description}</p>
