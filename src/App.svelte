@@ -17,6 +17,7 @@
     import FeedbackPage from "./FeedbackPage.svelte"
     import Roadmap from "./Roadmap.svelte"
     import { getNumberOfComments } from "./getNumberOfComments"
+    import {isFormValid} from "./isFormValid"
 
     //VARIABLES
 
@@ -50,7 +51,7 @@
     }
 
     function addCommentToArray() {
-        if (!replyString) return
+        if (!isFormValid()) return
 
         let comment = {
             content: capitalize(replyString),
@@ -106,7 +107,7 @@
             </section>
             <form
                 class="feedback__form"
-                on:submit|preventDefault={addCommentToArray}
+                
             >
                 <h2 class="feedback__form-header">add comment</h2>
                 <textarea
@@ -114,13 +115,16 @@
                     maxlength="250"
                     placeholder="Type your comment here"
                     bind:value={replyString}
+                    required
                 />
+                <p class="error-message">can't be empty</p>
                 <div class="feedback__form-a">
                     <p class="feedback__form-characters">
                         {250 - replyString.length} Characters left
                     </p>
                     <button
                         class="btn btn--violet btn--padded feedback__form-btn"
+                        on:click|preventDefault={addCommentToArray}
                         >post comment</button
                     >
                 </div>

@@ -1,6 +1,7 @@
 <script>
     import { user } from "./stores"
     import { createEventDispatcher } from "svelte"
+    import { isFormValid } from "./isFormValid"
 
     const dispatch = createEventDispatcher()
 
@@ -14,7 +15,6 @@
     function capitalize(string) {
         return string[0]?.toUpperCase() + string.slice(1)
     }
-
 
     export let commentUser
     export let content = ""
@@ -42,7 +42,19 @@
 {#if formIsVisible}
     <form
         class="feedback__form feedback__form--reply"
-        on:submit|preventDefault={() => {
+        
+    >
+        <textarea
+            class="feedback__form-input"
+            maxlength="250"
+            bind:value={replyString}
+            required
+        />
+        <p class="error-message">can't be empty</p>
+        <button class="btn btn--violet btn--padded feedback__form-btn"
+        on:click|preventDefault={() => {
+            if (!isFormValid()) return
+
             let newReply = {
                 content: capitalize(replyString),
                 replyingTo: username,
@@ -52,13 +64,6 @@
             replyString = ""
             formIsVisible = !formIsVisible
         }}
-    >
-        <textarea
-            class="feedback__form-input"
-            maxlength="250"
-            bind:value={replyString}
-        />
-        <button class="btn btn--violet btn--padded feedback__form-btn"
             >post reply</button
         >
     </form>

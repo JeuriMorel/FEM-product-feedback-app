@@ -1,6 +1,7 @@
 <script>
     import { user } from "./stores"
     import { createEventDispatcher } from "svelte"
+    import {isFormValid} from "./isFormValid"
 
     const dispatch = createEventDispatcher()
 
@@ -46,7 +47,14 @@
     {#if formIsVisible}
         <form
             class="feedback__form feedback__form--reply"
-            on:submit|preventDefault={() => {
+            
+        >
+            <textarea class="feedback__form-input" maxlength="250"
+                bind:value={replyString} required></textarea>
+                <p class="error-message">can't be empty</p>
+            <button class="btn btn--violet btn--padded feedback__form-btn"
+            on:click|preventDefault={() => {
+                if(!isFormValid()) return
                 let newReply = {
                     content: capitalize(replyString),
                     replyingTo: replyUser.username,
@@ -56,10 +64,6 @@
                 replyString = ""
                 formIsVisible = !formIsVisible
             }}
-        >
-            <textarea class="feedback__form-input" maxlength="250"
-                bind:value={replyString}></textarea>
-            <button class="btn btn--violet btn--padded feedback__form-btn"
                 >post reply</button
             >
         </form>

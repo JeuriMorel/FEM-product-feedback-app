@@ -10,6 +10,7 @@
         &__suggestions {
             display: inline-block;
         }
+        
     }
     .header {
         --gap: 0.625rem;
@@ -61,6 +62,10 @@
                 display: flex;
                 align-items: flex-start;
                 gap: 1rem;
+
+                & > *{
+                    margin-top: 0;
+                }
             }
         }
     }
@@ -93,6 +98,11 @@
             height: rem(325);
         }
     }
+    .btn{
+        &--padded{
+            padding: rem(12.5) rem(24);
+        }
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -112,9 +122,11 @@
         width: fit-content;
         margin: var(--header-height) 0 0;
         height: rem(529);
+        gap: rem(24);
     }
     .sidebar {
         flex-direction: column;
+        gap: rem(24);
 
         &__card {
             width: rem(255);

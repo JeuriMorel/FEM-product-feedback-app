@@ -66,7 +66,7 @@
         <h1 class="roadmap__h1">roadmap</h1>
     </div>
     <button
-        class="btn btn--violet sortbar__add"
+        class="btn btn--violet sortbar__add btn--padded"
         on:click={() => {
             currentPage.set("feedback--new")
         }}

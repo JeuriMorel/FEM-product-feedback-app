@@ -165,6 +165,10 @@
             padding: 0;
             width: rem(160);
             z-index: 1000;
+
+            &:hover{
+                color: var(--btn-text-75);
+            }
         }
     }
     &__option {
@@ -173,7 +177,6 @@
 
     &__add {
         margin-left: auto;
-        padding: rem(10.5) rem(17);
     }
 
     &__list {

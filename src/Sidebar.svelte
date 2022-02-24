@@ -9,7 +9,10 @@
     $: planned = getProgressCount("planned", [...$requests])
     $: live = getProgressCount("live", [...$requests])
     $: inProgress = getProgressCount("in-progress", [...$requests])
+
+    $: roadmapProgressTotal = planned + live + inProgress
     $: filterParam.set(filterValue)
+
 
     function getProgressCount(category, array) {
         let filteredRequestsArray = array.filter(request => {
@@ -22,7 +25,7 @@
 </script>
 
 <aside>
-    <ul class="sidebar" transition:fly={{ x: 2000, duration: 300 }}>
+    <ul class="sidebar" in:fly={{ x: 2000, duration: 300 }}>
         <li >
             <ul class="sidebar__card sidebar__card--filter">
                 {#each $filters as filter}
@@ -45,7 +48,7 @@
             <p class="roadmap__title">roadmap</p>
             <button class=" btn btn--link roadmap__btn" on:click={()=>{
                 currentPage.set('roadmap')
-            }}>view</button>
+            }} disabled={!roadmapProgressTotal}>view</button>
             <ul class="roadmap__list">
                 <li class="roadmap__item roadmap__item--peach">
                     planned <span>{planned}</span>

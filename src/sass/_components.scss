@@ -41,11 +41,10 @@
         &.upvoted {
             color: var(--lt-gray-blue);
             background-color: var(--blue);
-            
-            path{
+
+            path {
                 stroke: var(--lt-gray-blue);
             }
-
         }
     }
 
@@ -78,27 +77,3 @@
     }
 }
 
-.container {
-    margin-inline: auto;
-
-    &--main {
-        width: clamp(rem(375), 90vw, rem(825));
-    }
-    &--roadmap {
-        width: clamp(rem(689), 90vw, rem(1110));
-        max-width: 100%;
-    }
-
-    &--header {
-        width: clamp(rem(375), 90vw, rem(825));
-    }
-    &--narrow{
-        width: clamp(20.4375rem, 90vw, 51.5625rem);
-    }
-    &--narrow-xs{
-        width: clamp(20.4375rem, 90vw, 33.75rem);
-    }
-    &--narrow-sm{
-        width: clamp(20.4375rem, 90vw, 45.625rem);
-    }
-}

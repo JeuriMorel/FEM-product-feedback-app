@@ -29,6 +29,7 @@
     --red: hsla(0, 67%, 53%, 1);
     --red-hover: hsla(0, 69%, 72%, 1);
     --btn-text: hsla(230, 86%, 97%, 1);
+    --btn-text-75: hsla(230, 86%, 97%, 0.75);
     --input-bg: hsla(230, 60%, 98%, 1);
 }
 
@@ -76,4 +77,9 @@ main {
 
 textarea {
     resize: none;
+}
+
+input:focus,
+textarea:focus {
+    outline: 1px solid var(--blue);
 }

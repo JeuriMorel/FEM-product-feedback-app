@@ -33,12 +33,23 @@
         title = ""
         detail = ""
     }
-    function resetSuggestions(){
+    function resetSuggestions() {
         suggestions.set(
-                            $requests.filter(
-                                request => request.status === "suggestion"
+            $requests.filter(request => request.status === "suggestion")
+        )
+    }
+    function isFormValid(){
+        const form = document.querySelector('form')
+        let inputs = [...form.elements].filter(item => item.required)
+
+        let inputsAreValid = inputs.map(input => {
+                            input.classList.toggle(
+                                "error",
+                                !input.checkValidity()
                             )
-                        )
+                            return input.checkValidity()
+                        })
+        return inputsAreValid.every(item => item === true)
     }
 </script>
 
@@ -119,8 +130,10 @@
             type="text"
             class="addFeedback__input"
             name="feedback"
+            required
             bind:value={title}
         />
+        <p class="error-message">can't be empty</p>
 
         <div
             role="group"
@@ -133,6 +146,7 @@
             </p>
 
             <button
+                type="button"
                 class="btn addFeedback__list-btn addFeedback__input"
                 on:click|preventDefault={() => {
                     categoryMenuIsOpen = !categoryMenuIsOpen
@@ -213,6 +227,7 @@
                 </p>
 
                 <button
+                    type="button"
                     class="btn addFeedback__list-btn addFeedback__input"
                     on:click|preventDefault={() => {
                         statusMenuIsOpen = !statusMenuIsOpen
@@ -286,18 +301,24 @@
             etc.</label
         >
         <textarea
+            data-input-detail
             name="detail"
             id="detail"
             class="addFeedback__input addFeedback__input--textarea"
             bind:value={detail}
+            required
         />
+        <p class="error-message">can't be empty</p>
 
         <div class="addFeedback__form-btns">
             {#if $currentPage === "feedback--new"}
-                <!-- content here -->
                 <button
                     class="addFeedback__form-btn btn btn--violet btn--padded"
                     on:click|preventDefault={() => {
+                        
+
+                        if(!isFormValid()) return
+
                         let newFeedback = {
                             id: uuidv4(),
                             title: capitalize(title),
@@ -313,10 +334,12 @@
                     }}>add feedback</button
                 >
             {:else}
-                <!-- else content here -->
                 <button
                     class="addFeedback__form-btn btn btn--violet btn--padded"
                     on:click|preventDefault={() => {
+                        
+                        if(!isFormValid()) return
+
                         let editedFeedback = {
                             id: $feedback.id,
                             title,
@@ -363,7 +386,7 @@
                             })
                         })
                         resetSuggestions()
-                        currentPage.set('suggestions')
+                        currentPage.set("suggestions")
                     }}>delete</button
                 >
             {/if}
