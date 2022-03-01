@@ -9,7 +9,7 @@
         display: flex;
         gap: rem(15);
         align-items: center;
-        &:hover{
+        &:hover {
             text-decoration: underline;
         }
     }
@@ -17,6 +17,8 @@
         margin-block: 0;
     }
     &__comments {
+        --left-padding: 1.5rem;
+
         padding: clamp(rem(24), 7vw, rem(80)) rem(24);
         border-radius: rem(10);
         background-color: white;
@@ -32,15 +34,15 @@
     &__content {
         color: var(--gray-blue);
         font-weight: normal;
-        font-size: 13px;
-        line-height: 19px;
+        font-size: clamp(0.8125rem, calc(0.6932rem + 0.5089vw), 0.9375rem);
+        line-height: clamp(1.1875rem, calc(1.0086rem + 0.7634vw), 1.375rem);
     }
     &__replies-container {
         border-left: 1px solid var(--gray-blue-1);
     }
     &__reply {
         margin-block: rem(24);
-        padding-left: rem(24);
+        padding-left: var(--left-padding);
 
         &:last-of-type {
             position: relative;
@@ -68,7 +70,7 @@
         margin-bottom: clamp(rem(88), 16vw, rem(137));
 
         &--reply {
-            margin-bottom: 0;
+            margin-block: rem(24) 0;
             padding: 0;
         }
 

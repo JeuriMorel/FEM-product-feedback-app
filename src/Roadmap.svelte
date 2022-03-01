@@ -44,7 +44,11 @@
             subtitle: "Released features",
         },
     ]
+
+    let windowWidth;
 </script>
+
+<svelte:window bind:innerWidth={windowWidth}/>
 
 <header class="roadmap__header container container--roadmap">
     <div class="roadmap__header-text">
@@ -102,7 +106,8 @@
     </div>
     <section
         class="roadmap__grid"
-        style="left: {leftGridValue}vw;"
+        style="left: {leftGridValue}vw;
+                --window-width: {windowWidth}px;"
     >
         {#each statusTypes as status}
             <article class="roadmap__article roadmap__article--{status}">

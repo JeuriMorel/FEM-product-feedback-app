@@ -38,17 +38,14 @@
             $requests.filter(request => request.status === "suggestion")
         )
     }
-    function isFormValid(){
-        const form = document.querySelector('form')
+    function isFormValid() {
+        const form = document.querySelector("form")
         let inputs = [...form.elements].filter(item => item.required)
 
         let inputsAreValid = inputs.map(input => {
-                            input.classList.toggle(
-                                "error",
-                                !input.checkValidity()
-                            )
-                            return input.checkValidity()
-                        })
+            input.classList.toggle("error", !input.checkValidity())
+            return input.checkValidity()
+        })
         return inputsAreValid.every(item => item === true)
     }
 </script>
@@ -315,9 +312,7 @@
                 <button
                     class="addFeedback__form-btn btn btn--violet btn--padded"
                     on:click|preventDefault={() => {
-                        
-
-                        if(!isFormValid()) return
+                        if (!isFormValid()) return
 
                         let newFeedback = {
                             id: uuidv4(),
@@ -331,14 +326,14 @@
                         requests.set([...$requests, newFeedback])
                         resetSuggestions()
                         resetForm()
+                        currentPage.set("suggestions")
                     }}>add feedback</button
                 >
             {:else}
                 <button
                     class="addFeedback__form-btn btn btn--violet btn--padded"
                     on:click|preventDefault={() => {
-                        
-                        if(!isFormValid()) return
+                        if (!isFormValid()) return
 
                         let editedFeedback = {
                             id: $feedback.id,
@@ -376,9 +371,8 @@
                 }}>cancel</button
             >
             {#if $currentPage === "feedback--edit"}
-                <!-- content here -->
                 <button
-                    class="addFeedback__form-btn btn btn--red btn--padded"
+                    class="addFeedback__form-btn addFeedback__form-btn--delete btn btn--red btn--padded"
                     on:click|preventDefault={() => {
                         requests.update(requestArray => {
                             return requestArray.filter(request => {

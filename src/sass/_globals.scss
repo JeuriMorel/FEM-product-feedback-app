@@ -20,7 +20,7 @@
     --lt-gray-blue-hover: hsl(230, 100%, 91%);
     --vr-lt-gray-blue: hsla(230, 60%, 98%, 1);
     --dk-gray-blue-2: hsla(231, 33%, 34%, 1);
-    --dk-gray-blue-2-hover: hsl(230, 100%, 91%);
+    --dk-gray-blue-2-hover: hsla(231, 26%, 52%, 1);
     --gray-blue: hsla(224, 20%, 49%, 1);
     --gray-blue-25: hsla(224, 20%, 49%, 0.25);
     --gray-blue-1: hsla(224, 20%, 49%, 0.1);
@@ -39,6 +39,7 @@ html {
 }
 body {
     min-height: 100vh;
+    max-width: 100vw;
     background-color: var(--lt-gray-blue);
 }
 

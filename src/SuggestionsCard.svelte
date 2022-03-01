@@ -46,7 +46,7 @@
         <h2 class="suggestions__title">{title}</h2>
         <p class="suggestions__description">{description}</p>
     </div>
-    <button class="btn btn--filter suggestions__category">{category}</button>
+    <button class="btn btn--filter suggestions__category" disabled>{category}</button>
     <button
         class="btn btn--filter suggestions__upvotes"
         on:click|stopPropagation={() => {

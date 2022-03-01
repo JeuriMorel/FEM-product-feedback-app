@@ -3,7 +3,7 @@
     import Comment from "./Comment.svelte"
     import Reply from "./Reply.svelte"
 
-    // let replyString = ""
+    let hasReplies
 
     $: comments = $feedback.comments
 
@@ -15,7 +15,6 @@
             }
             return comment
         })
-        
         feedback.update(comment =>{
             return {...comment, comments: newComments}
         })
@@ -24,8 +23,7 @@
 
 {#each comments as { content, user, replies = [], id }(id)}
     <article class="feedback__comment">
-        <Comment commentUser={user} {id} {content} on:add={updateReplies}/>
-
+        <Comment commentUser={user} {id} {content} on:add={updateReplies} hasReplies={replies.length > 0}/>
         <div class="feedback__replies-container">
             {#each replies as reply}
                 <Reply {id} {reply} on:add={updateReplies}/>

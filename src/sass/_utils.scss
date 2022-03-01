@@ -22,6 +22,7 @@
 
     &--main {
         width: clamp(rem(375), 90vw, rem(825));
+        padding-top: var(--header-height);
     }
     &--roadmap {
         width: clamp(rem(689), 90vw, rem(1110));

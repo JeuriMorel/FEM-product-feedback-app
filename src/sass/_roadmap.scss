@@ -27,6 +27,10 @@
         gap: 0.9375rem;
         align-items: center;
         padding-left: 0;
+
+        &:hover{
+            text-decoration: underline;
+        }
     }
     &__radios {
         max-width: 100%;
@@ -96,10 +100,8 @@
     &__grid {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(3, 100%);
-        // overflow-x: hidden;
+        grid-template-columns: repeat(3, var(--window-width, 100%));
         margin-top: rem(24);
-        // gap: 10vw;
         transition: left 200ms;
     }
 

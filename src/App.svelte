@@ -17,7 +17,7 @@
     import FeedbackPage from "./FeedbackPage.svelte"
     import Roadmap from "./Roadmap.svelte"
     import { getNumberOfComments } from "./getNumberOfComments"
-    import {isFormValid} from "./isFormValid"
+    import { isFormValid } from "./isFormValid"
 
     //VARIABLES
 
@@ -36,6 +36,17 @@
         : document.body.classList.remove("onMainPage")
 
     // FUNCTIONS
+
+    $: $currentPage && scrollToTop()
+
+    function scrollToTop() {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        })
+    }
+
     async function fetchData(prop) {
         let res = await fetch("./data.json")
         let data = await res.json()
@@ -44,6 +55,7 @@
 
     function toggleNav() {
         navIsOpen = !navIsOpen
+        scrollToTop()
     }
 
     function capitalize(string) {
@@ -78,6 +90,11 @@
             setRequests.filter(request => request.status === "suggestion")
         )
     })
+
+    $: JSON.stringify($user) !== "{}" &&
+        localStorage.setItem("user", JSON.stringify($user))
+    $: $requests.length &&
+        localStorage.setItem("requests", JSON.stringify($requests))
 </script>
 
 {#if isOnMainPage}
@@ -99,16 +116,18 @@
     >
         {#if $currentPage === "feedback--detail"}
             <SuggestionCard info={$feedback} />
-            <section class="feedback__comments">
-                <h2>{getNumberOfComments($feedback.comments)} Comments</h2>
+            <section
+                class="feedback__comments"
+                aria-labelledby="feedback comments heading"
+            >
+                <h2 id="feedback comments heading">
+                    {getNumberOfComments($feedback.comments)} Comments
+                </h2>
                 {#if $feedback.comments}
                     <FeedbackComments />
                 {/if}
             </section>
-            <form
-                class="feedback__form"
-                
-            >
+            <form class="feedback__form">
                 <h2 class="feedback__form-header">add comment</h2>
                 <textarea
                     class="feedback__form-input"

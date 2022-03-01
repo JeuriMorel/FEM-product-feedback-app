@@ -2,15 +2,20 @@
     :root {
         --header-height: 1.5rem;
     }
+
+    .container--main {
+        padding: 0;
+    }
     .sortbar {
         border-radius: rem(10);
+        inset: auto;
+        position: relative;
         &__icon {
             display: inline-block;
         }
         &__suggestions {
             display: inline-block;
         }
-        
     }
     .header {
         --gap: 0.625rem;
@@ -62,17 +67,38 @@
                 display: flex;
                 align-items: flex-start;
                 gap: 1rem;
+                padding-left: var(--left-padding);
 
-                & > *{
+                & > * {
                     margin-top: 0;
                 }
             }
+        }
+
+        &__comments {
+            --left-padding: 4.5rem;
+        }
+
+        &__replies-container {
+            margin-left: calc(var(--avatar-height) / 2);
+        }
+
+        &__reply {
+            padding-left: calc(var(--left-padding) - var(--avatar-height));
+        }
+
+        &__content {
+            padding-left: var(--left-padding);
         }
     }
     .addFeedback {
         &__form {
             &-btns {
                 flex-direction: row-reverse;
+            }
+
+            &-btn--delete{
+                margin-right: auto;
             }
         }
     }
@@ -94,13 +120,27 @@
         &__radios {
             display: none;
         }
-        &__card{
+        &__card {
             height: rem(325);
         }
     }
-    .btn{
-        &--padded{
+    .btn {
+        &--padded {
             padding: rem(12.5) rem(24);
+        }
+    }
+    .user {
+        gap: rem(32);
+    }
+    .hasReplies {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            border-left: 1px solid var(--gray-blue-1);
+            height: calc(100% + 1.5rem);
+            left: calc(var(--avatar-height) / 2);
         }
     }
 }
@@ -136,8 +176,8 @@
             }
         }
     }
-    .roadmap{
-        &__card{
+    .roadmap {
+        &__card {
             height: auto;
         }
     }

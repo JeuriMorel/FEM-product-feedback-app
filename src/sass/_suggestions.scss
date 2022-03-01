@@ -5,6 +5,7 @@
     letter-spacing: rem(-0.18);
     padding-top: 2rem;
     width: clamp(rem(327), 90vw, rem(825));
+    margin-bottom: clamp(rem(50), 7vw, rem(129));
 
     &__card {
         background-color: white;
@@ -90,7 +91,7 @@
         border-radius: rem(10);
         padding-inline: clamp(rem(25), 18vw, rem(206));
         padding-block: clamp(rem(76), 14vw, rem(110));
-        margin-bottom: clamp(rem(50), 7vw, rem(129));
+        
 
         &-container{
             width: clamp(rem(278), 20vw, rem(410));
@@ -113,7 +114,6 @@
         &--para {
             font-size: rem(13);
             line-height: rem(19);
-            // text-align: center;
             color: var(--gray-blue);
             margin-bottom: rem(24);
         }
@@ -122,7 +122,8 @@
 
 .sortbar {
     display: flex;
-    position: relative;
+    position: fixed;
+    inset: var(--header-height) 0 auto 0;
     background-color: var(--dk-gray-blue-2);
     padding: rem(14) rem(16) rem(14) rem(24);
     gap: rem(38);
