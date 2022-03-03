@@ -40,11 +40,11 @@
     class:roadmap__card--live={info.status === "live"}
 >
     {#if isRoadmapCard}
-        <p class="roadmap__status">{info.status.replace('-', ' ')}</p>
+        <p class="roadmap__status fs-13 lh-19">{info.status.replace('-', ' ')}</p>
     {/if}
     <div class="suggestions__text">
-        <h2 class="suggestions__title">{title}</h2>
-        <p class="suggestions__description">{description}</p>
+        <h2 class="suggestions__title fs-13-18 lh-19-26">{title}</h2>
+        <p class="suggestions__description fs-13-16 lh-19-23">{description}</p>
     </div>
     <button class="btn btn--filter suggestions__category" disabled>{category}</button>
     <button

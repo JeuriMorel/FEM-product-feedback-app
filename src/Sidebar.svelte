@@ -25,7 +25,7 @@
 </script>
 
 <aside>
-    <ul class="sidebar" in:fly={{ x: 2000, duration: 300 }}>
+    <ul class="sidebar" in:fly={{ x: 2000, duration: 350 }}>
         <li >
             <ul class="sidebar__card sidebar__card--filter">
                 {#each $filters as filter}

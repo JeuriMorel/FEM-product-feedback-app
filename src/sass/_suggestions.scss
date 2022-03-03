@@ -42,16 +42,12 @@
     }
 
     &__title {
-        font-size: clamp(rem(13), 2vw, rem(18));
-        line-height: clamp(rem(19), 3vw, rem(26));
         letter-spacing: clamp(rem(-0.18), -0.04vw, rem(-0.25));
         color: var(--dk-gray-blue-2);
         margin-bottom: rem(9);
     }
     &__description {
         font-weight: 400;
-        font-size: clamp(rem(13), 2vw, rem(16));
-        line-height: clamp(rem(19), 3vw, rem(23));
         color: var(--gray-blue);
         letter-spacing: initial;
     }
@@ -103,10 +99,8 @@
         }
 
         &--title {
-            // font-weight: bold;
             font-size: rem(18);
             line-height: rem(26);
-            // text-align: center;
             letter-spacing: rem(-0.25);
             margin-bottom: rem(14);
             color: var(--dk-gray-blue-2);

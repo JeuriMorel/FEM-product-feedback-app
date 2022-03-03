@@ -76,8 +76,6 @@
     &__label {
         font-weight: bold;
         position: relative;
-        font-size: 13px;
-        line-height: 19px;
         text-align: center;
         letter-spacing: -0.180556px;
         color: #3a4374;
@@ -110,15 +108,11 @@
     }
     &__h2 {
         font-weight: bold;
-        font-size: 18px;
-        line-height: 26px;
         letter-spacing: -0.25px;
         color: #3a4374;
         text-transform: capitalize;
     }
     &__subtitle {
-        font-size: 13px;
-        line-height: 19px;
         color: #647196;
         margin-bottom: rem(24);
     }
@@ -152,8 +146,6 @@
         justify-content: space-between;
         align-items: center;
         color: var(--gray-blue);
-        font-size: rem(13);
-        line-height: rem(19);
         margin-right: auto;
         gap: 0.5rem;
         text-transform: capitalize;

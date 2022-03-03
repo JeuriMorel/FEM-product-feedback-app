@@ -91,6 +91,8 @@
         )
     })
 
+    $: if (!isOnMainPage) navIsOpen = false
+
     $: JSON.stringify($user) !== "{}" &&
         localStorage.setItem("user", JSON.stringify($user))
     $: $requests.length &&

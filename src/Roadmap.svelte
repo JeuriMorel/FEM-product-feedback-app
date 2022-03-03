@@ -96,7 +96,7 @@
                 />
                 <label
                     for={status}
-                    class="roadmap__label roadmap__label--{status}"
+                    class="roadmap__label roadmap__label--{status} fs-13 lh-19"
                     >{status} ({getProgressCount(status, [
                         ...$requests,
                     ])})</label
@@ -111,10 +111,10 @@
     >
         {#each statusTypes as status}
             <article class="roadmap__article roadmap__article--{status}">
-                <h2 class="roadmap__h2">
+                <h2 class="roadmap__h2 fs-18 lh-26">
                     {status} ({getProgressCount(status, [...$requests])})
                 </h2>
-                <p class="roadmap__subtitle">{getSubtitle(status)}</p>
+                <p class="roadmap__subtitle fs-13 lh-19">{getSubtitle(status)}</p>
                 <div class="roadmap__card-container">
                     {#each getStatusArray(status) as card}
                         <SuggestionCard info={card} isRoadmapCard="true" />

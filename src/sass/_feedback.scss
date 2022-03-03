@@ -34,8 +34,6 @@
     &__content {
         color: var(--gray-blue);
         font-weight: normal;
-        font-size: clamp(0.8125rem, calc(0.6932rem + 0.5089vw), 0.9375rem);
-        line-height: clamp(1.1875rem, calc(1.0086rem + 0.7634vw), 1.375rem);
     }
     &__replies-container {
         border-left: 1px solid var(--gray-blue-1);
@@ -128,8 +126,6 @@
     }
     &__text {
         font-weight: bold;
-        font-size: rem(13);
-        line-height: rem(19);
         letter-spacing: rem(-0.18);
         color: var(--dk-gray-blue);
     }

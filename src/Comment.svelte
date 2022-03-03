@@ -27,7 +27,7 @@
 
 <div class="user">
     <img src={image} alt={name} class="user__image" />
-    <div class="user__text">
+    <div class="user__text fs-13 lh-19">
         <p class="user__name">{name}</p>
         <p class="user__username">@{username}</p>
     </div>
@@ -39,7 +39,7 @@
     >
 </div>
 
-<p class="feedback__content feedback__content--main" class:hasReplies>
+<p class="feedback__content feedback__content--main lh-19-22 fs-13-15" class:hasReplies>
     {content}
 </p>
 {#if formIsVisible}
