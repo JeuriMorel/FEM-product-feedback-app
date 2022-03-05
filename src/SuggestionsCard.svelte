@@ -1,6 +1,6 @@
 <script>
     import { getNumberOfComments } from "./getNumberOfComments"
-    import { suggestions, feedback, currentPage } from "./stores"
+    import { suggestions, feedback, currentPage, requests } from "./stores"
 
     export let info
     export let isRoadmapCard = false
@@ -23,6 +23,14 @@
                 return currentSuggestion
             })
         })
+        requests.update(requestsArray => {
+            return requestsArray.map(currentRequest => {
+                if (currentRequest.title === info.title) {
+                    return info
+                }
+                return currentRequest
+            })
+        })
     }
 
     function goToFeedbackDetail() {
@@ -40,13 +48,19 @@
     class:roadmap__card--live={info.status === "live"}
 >
     {#if isRoadmapCard}
-        <p class="roadmap__status fs-13 lh-19">{info.status.replace('-', ' ')}</p>
+        <ul>
+            <li class="roadmap__status fs-13">
+                {info.status.replace("-", " ")}
+            </li>
+        </ul>
     {/if}
     <div class="suggestions__text">
         <h2 class="suggestions__title fs-13-18 lh-19-26">{title}</h2>
         <p class="suggestions__description fs-13-16 lh-19-23">{description}</p>
     </div>
-    <button class="btn btn--filter suggestions__category" disabled>{category}</button>
+    <button class="btn btn--filter suggestions__category" disabled
+        >{category}</button
+    >
     <button
         class="btn btn--filter suggestions__upvotes"
         on:click|stopPropagation={() => {
@@ -60,6 +74,7 @@
             updateSuggestions()
         }}
         class:upvoted
+        class:suggestions__upvotes--roadmap={isRoadmapCard}
     >
         <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg"
             ><path

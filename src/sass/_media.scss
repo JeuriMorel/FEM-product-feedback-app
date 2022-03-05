@@ -47,7 +47,7 @@
                 "upvotes desc desc desc comments"
                 "nothing category null null null";
         }
-        &__upvotes {
+        &__upvotes:where(:not(.suggestions__upvotes--roadmap)) {
             flex-direction: column;
             width: rem(40);
             height: auto;

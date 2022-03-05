@@ -28,7 +28,7 @@
         align-items: center;
         padding-left: 0;
 
-        &:hover{
+        &:hover {
             text-decoration: underline;
         }
     }
@@ -119,6 +119,7 @@
     &__card {
         position: relative;
         overflow: hidden;
+        align-items: flex-start;
 
         &::before {
             content: "";
@@ -137,27 +138,22 @@
         &--live {
             --status-color: var(--lt-blue);
         }
-
-        
     }
 
     &__status {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         color: var(--gray-blue);
         margin-right: auto;
-        gap: 0.5rem;
         text-transform: capitalize;
+        list-style-type: disc;
+        list-style-position: inside;
+        line-height: 1;
 
-        &::before {
-            content: "\2022";
-            font-weight: 700;
-            font-size: 2.5rem;
-            height: 0.5rem;
-            width: 0.5rem;
-            display: inline-block;
+        &::marker {
             color: var(--status-color);
+            font-size: 1.5em;
+            margin-right: 0.5rem;
+            display: inline-block;
+            vertical-align: middle;
         }
     }
 }

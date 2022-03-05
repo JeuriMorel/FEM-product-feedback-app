@@ -13,7 +13,6 @@
         padding: rem(24);
         border-radius: rem(10);
         display: grid;
-        align-items: center;
         gap: 1rem;
         grid-template-areas:
             "desc desc desc"
@@ -39,6 +38,9 @@
 
     &__text {
         grid-area: desc;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     &__title {
@@ -60,10 +62,12 @@
         grid-area: comments;
         line-height: inherit;
         justify-self: flex-end;
+        align-self: center;
     }
     &__upvotes {
         display: flex;
         align-items: center;
+        align-self: center;
         gap: rem(10);
         grid-area: upvotes;
         max-width: fit-content;
@@ -74,6 +78,7 @@
     &__category {
         display: block;
         grid-area: category;
+        align-self: flex-end;
         margin-top: rem(-8);
         max-width: fit-content;
     }

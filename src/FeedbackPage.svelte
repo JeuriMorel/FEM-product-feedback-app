@@ -322,8 +322,8 @@
                             status: "suggestion",
                             description: capitalize(detail),
                         }
-
-                        requests.set([...$requests, newFeedback])
+                        let updatedFeedback = [...new Set([...$requests, newFeedback])]
+                        requests.set(updatedFeedback)
                         resetSuggestions()
                         resetForm()
                         currentPage.set("suggestions")
