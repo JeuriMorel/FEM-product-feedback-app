@@ -179,37 +179,42 @@
         display: flex;
         flex-direction: column;
         gap: rem(8);
+        list-style: disc;
+
+        &-category{
+            display: inline-block;
+            vertical-align: top;
+            margin-left: -0.5rem;
+        }
     }
 
     &__item {
-        display: flex;
         justify-content: space-between;
         align-items: center;
         color: var(--gray-blue);
-        line-height: 0px;
+        line-height: 23px;
+        list-style-position: inside;
 
-        &::before {
-            content: "\2022";
-            font-weight: 700;
-            font-size: 2em;
-            margin-right: 1rem;
-            display: inline-block;
+
+        &::marker {
+            color: var(--status-color);
+            font-size: 1.5em;
         }
 
-        &--violet::before {
-            color: var(--violet);
+        &--violet {
+            --status-color: var(--violet);
         }
-        &--peach::before {
-            color: var(--peach);
+        &--peach {
+            --status-color: var(--peach);
         }
-        &--lt-blue::before {
-            color: var(--lt-blue);
+        &--lt-blue {
+            --status-color: var(--lt-blue);
         }
 
         span {
+            display: inline-block;
             margin-left: auto;
             font-weight: bold;
-            line-height: rem(24);
             text-align: right;
         }
     }

@@ -144,9 +144,13 @@
         color: var(--gray-blue);
         margin-right: auto;
         text-transform: capitalize;
-        list-style-type: disc;
+        display: list-item;
         list-style-position: inside;
-        line-height: 1;
+
+        &-text {
+            margin-left: -10px;
+            vertical-align: top;
+        }
 
         &::marker {
             color: var(--status-color);

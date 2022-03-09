@@ -48,11 +48,13 @@
     class:roadmap__card--live={info.status === "live"}
 >
     {#if isRoadmapCard}
-        <ul>
-            <li class="roadmap__status fs-13">
-                {info.status.replace("-", " ")}
-            </li>
-        </ul>
+        
+            <p class="roadmap__status fs-13-16 lh-19-23">
+                <span class="roadmap__status-text">
+                    {info.status.replace("-", " ")}
+                </span>
+            </p>
+        
     {/if}
     <div class="suggestions__text">
         <h2 class="suggestions__title fs-13-18 lh-19-26">{title}</h2>

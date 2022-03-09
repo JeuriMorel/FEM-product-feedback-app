@@ -51,7 +51,7 @@
 }
 
 .fs-13-16 {
-    font-size: clamp(rem(13), 2vw, rem(16));
+    font-size: clamp(0.8125rem, calc(0.5982rem + 0.4464vw), 1rem);
 }
 .fs-13-18 {
     font-size: clamp(rem(13), 2vw, rem(18));
