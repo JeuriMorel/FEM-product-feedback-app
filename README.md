@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](fem-product-feedback-app/public/assets/Screenshot%20Frontend%20Mentor%20Product%20feedback%20app.png)
+![](/public/assets/Screenshot%20Frontend%20Mentor%20Product%20feedback%20app.png)
 
 ### Links
 
