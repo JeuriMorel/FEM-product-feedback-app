@@ -37,8 +37,8 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/responsive-mobilefirst-svelte-web-app-J1c4lMY-_)
--   Live Site URL: [Add live site URL here](https://fem-product-feedback-app.vercel.app/)
+-   Solution URL: [https://www.frontendmentor.io/solutions/responsive-mobilefirst-svelte-web-app-J1c4lMY-_](https://www.frontendmentor.io/solutions/responsive-mobilefirst-svelte-web-app-J1c4lMY-_)
+-   Live Site URL: [https://fem-product-feedback-app.vercel.app/](https://fem-product-feedback-app.vercel.app/)
 
 ## My process
 
