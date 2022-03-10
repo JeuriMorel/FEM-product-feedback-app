@@ -22,7 +22,7 @@
     }
 </script>
 
-<aside>
+<div>
     <ul class="sidebar" in:fly={{ x: 2000, duration: 350 }}>
         <li>
             <ul class="sidebar__card sidebar__card--filter">
@@ -63,13 +63,9 @@
                 </li>
                 <li class="roadmap__item roadmap__item--violet">
                     <p class="roadmap__list-category">
-                        <span>
-                            in-Progress 
-                        </span> 
+                        <span> in-Progress </span>
 
-                        <span class="roadmap__quantity"
-                            >{inProgress}</span
-                        >
+                        <span class="roadmap__quantity">{inProgress}</span>
                     </p>
                 </li>
                 <li class="roadmap__item roadmap__item--lt-blue">
@@ -80,4 +76,4 @@
             </ul>
         </li>
     </ul>
-</aside>
+</div>
