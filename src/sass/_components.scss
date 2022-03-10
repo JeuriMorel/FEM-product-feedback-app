@@ -4,7 +4,7 @@
     border: none;
     text-transform: capitalize;
     padding: rem(6) 1rem;
-    font-weight: bold;
+    font-weight: 700;
     font-size: rem(13);
     line-height: rem(19);
     color: var(--btn-text);
@@ -31,7 +31,6 @@
         background-color: var(--lt-gray-blue);
         color: var(--blue);
         font-size: rem(13);
-        font-weight: 600;
         line-height: rem(19);
         &:hover,
         &:focus {
@@ -76,4 +75,3 @@
         background-color: transparent;
     }
 }
-

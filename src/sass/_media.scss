@@ -39,6 +39,7 @@
         }
     }
     .suggestions {
+        padding-top: rem(24);
         &__card:where(:not(.roadmap__card)) {
             padding: rem(28) rem(32);
             grid-template-columns: 60px repeat(4, auto);
@@ -97,7 +98,7 @@
                 flex-direction: row-reverse;
             }
 
-            &-btn--delete{
+            &-btn--delete {
                 margin-right: auto;
             }
         }

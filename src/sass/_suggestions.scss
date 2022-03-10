@@ -5,11 +5,11 @@
     letter-spacing: rem(-0.18);
     padding-top: 2rem;
     width: clamp(rem(327), 90vw, rem(825));
-    margin-bottom: clamp(rem(50), 7vw, rem(129));
+    margin-bottom: clamp(3.4375rem, calc(1.809rem + 6.9484vw), 8.0625rem);
 
     &__card {
         background-color: white;
-        margin-bottom: 1rem;
+        margin-bottom: clamp(1rem, calc(0.7143rem + 0.5952vw), 1.25rem);
         padding: rem(24);
         border-radius: rem(10);
         display: grid;
@@ -26,13 +26,13 @@
             }
         }
 
-        &.roadmap__card{
+        &.roadmap__card {
             grid-template-areas:
-            "status rien rien"
-            "desc desc desc"
-            "desc desc desc"
-            "category empty empty"
-            "upvotes nothing comments";
+                "status rien rien"
+                "desc desc desc"
+                "desc desc desc"
+                "category empty empty"
+                "upvotes nothing comments";
         }
     }
 
@@ -46,7 +46,6 @@
     &__title {
         letter-spacing: clamp(rem(-0.18), -0.04vw, rem(-0.25));
         color: var(--dk-gray-blue-2);
-        margin-bottom: rem(9);
     }
     &__description {
         font-weight: 400;
@@ -55,14 +54,17 @@
     }
     &__comments {
         display: flex;
+        width: rem(40);
         align-items: center;
         vertical-align: middle;
-        gap: rem(4);
-        font-weight: 600;
+        justify-content: space-between;
+        font-weight: 700;
         grid-area: comments;
         line-height: inherit;
         justify-self: flex-end;
         align-self: center;
+        text-align: center;
+        letter-spacing: -0.222222px;
     }
     &__upvotes {
         display: flex;
@@ -92,14 +94,13 @@
         border-radius: rem(10);
         padding-inline: clamp(rem(25), 18vw, rem(206));
         padding-block: clamp(rem(76), 14vw, rem(110));
-        
 
-        &-container{
+        &-container {
             width: clamp(rem(278), 20vw, rem(410));
             height: clamp(rem(308), 30vw, rem(379));
             text-align: center;
         }
-        &-img{
+        &-img {
             margin-bottom: rem(39);
         }
 
@@ -166,7 +167,7 @@
             width: rem(160);
             z-index: 1000;
 
-            &:hover{
+            &:hover {
                 color: var(--btn-text-75);
             }
         }

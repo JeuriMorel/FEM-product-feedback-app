@@ -56,18 +56,25 @@
             >
             <ul class="roadmap__list">
                 <li class="roadmap__item roadmap__item--peach">
-                    <p class="roadmap__list-category">
-                        planned <span>{planned}</span>
+                    <p class="roadmap__list-category ">
+                        <span> planned </span>
+                        <span class="roadmap__quantity">{planned}</span>
                     </p>
                 </li>
                 <li class="roadmap__item roadmap__item--violet">
                     <p class="roadmap__list-category">
-                        in-Progress <span>{inProgress}</span>
+                        <span>
+                            in-Progress 
+                        </span> 
+
+                        <span class="roadmap__quantity"
+                            >{inProgress}</span
+                        >
                     </p>
                 </li>
                 <li class="roadmap__item roadmap__item--lt-blue">
                     <p class="roadmap__list-category">
-                        live<span>{live}</span>
+                        live<span class="roadmap__quantity">{live}</span>
                     </p>
                 </li>
             </ul>

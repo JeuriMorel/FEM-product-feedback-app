@@ -157,5 +157,3 @@
 {:else if $currentPage === "roadmap"}
     <Roadmap />
 {/if}
-
-<!-- name[0]?.toUpperCase() + name.slice(1) -->

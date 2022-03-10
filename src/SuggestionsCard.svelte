@@ -48,16 +48,16 @@
     class:roadmap__card--live={info.status === "live"}
 >
     {#if isRoadmapCard}
-        
-            <p class="roadmap__status fs-13-16 lh-19-23">
-                <span class="roadmap__status-text">
-                    {info.status.replace("-", " ")}
-                </span>
-            </p>
-        
+        <p class="roadmap__status fs-13-16 lh-19-23">
+            <span class="roadmap__status-text">
+                {info.status.replace("-", " ")}
+            </span>
+        </p>
     {/if}
     <div class="suggestions__text">
-        <h2 class="suggestions__title fs-13-18 lh-19-26">{title}</h2>
+        <h2 class="suggestions__title fs-13-18--md-lg lh-19-26--md-lg">
+            {title}
+        </h2>
         <p class="suggestions__description fs-13-16 lh-19-23">{description}</p>
     </div>
     <button class="btn btn--filter suggestions__category" disabled
@@ -89,11 +89,14 @@
         >
         {upvotes}
     </button>
-    <p class="suggestions__comments">
+    <p class="suggestions__comments fs-13-16 lh-19-23">
         <img
             src="/assets/shared/icon-comments.svg"
             alt="quote"
             aria-hidden="true"
-        />{getNumberOfComments(comments)}
+        />
+        <span class:fade={!getNumberOfComments(comments)}>
+            {getNumberOfComments(comments)}
+        </span>
     </p>
 </article>

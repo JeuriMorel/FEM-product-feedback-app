@@ -54,7 +54,10 @@
     font-size: clamp(0.8125rem, calc(0.5982rem + 0.4464vw), 1rem);
 }
 .fs-13-18 {
-    font-size: clamp(rem(13), 2vw, rem(18));
+    font-size: clamp(0.8125rem, calc(0.5143rem + 1.2723vw), 1.125rem);
+    &--md-lg {
+        font-size: clamp(0.8125rem, calc(0.4554rem + 0.744vw), 1.125rem);
+    }
 }
 .fs-18 {
     font-size: rem(18);
@@ -67,11 +70,20 @@
     line-height: clamp(rem(19), 3vw, rem(23));
 }
 .lh-19-26 {
-    line-height: clamp(rem(19), 3vw, rem(26));
+    line-height: clamp(1.1875rem, calc(0.77rem + 1.7812vw), 1.625rem);
+
+    &--md-lg {
+        line-height: clamp(1.1875rem, calc(0.6875rem + 1.0417vw), 1.625rem);
+    }
 }
 .lh-19-22 {
     line-height: clamp(1.1875rem, calc(1.0086rem + 0.7634vw), 1.375rem);
 }
 .lh-26 {
     line-height: rem(26);
+}
+
+.fade {
+    mix-blend-mode: normal;
+    opacity: 0.5;
 }
