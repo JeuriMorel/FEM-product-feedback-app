@@ -33,12 +33,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](../fem-product-feedback-app/public/assets/Screenshot%20Frontend%20Mentor%20Product%20feedback%20app.png)
+![](/public/assets/Screenshot%20Frontend%20Mentor%20Product%20feedback%20app.png)
 
 ### Links
 
--   Solution URL: [Add solution URL here](https://your-solution-url.com)
--   Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+-   Solution URL: [Add solution URL here](https://www.frontendmentor.io/solutions/responsive-mobilefirst-svelte-web-app-J1c4lMY-_)
+-   Live Site URL: [Add live site URL here](https://fem-product-feedback-app.vercel.app/)
 
 ## My process
 

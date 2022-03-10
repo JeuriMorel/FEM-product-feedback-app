@@ -187,14 +187,15 @@
             display: inline-flex;
             justify-content: space-between;
             vertical-align: top;
-            margin-left: -0.5rem;
             width: calc(100% - var(--marker-size) - 0.5rem);
+
+            @supports not (-moz-appearance: none) {
+                margin-left: -0.5rem;
+            }
         }
     }
 
     &__item {
-        justify-content: space-between;
-        align-items: center;
         color: var(--gray-blue);
         line-height: 23px;
         list-style-position: inside;

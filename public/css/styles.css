@@ -1401,17 +1401,16 @@ textarea:focus {
       -ms-flex-pack: justify;
           justify-content: space-between;
   vertical-align: top;
-  margin-left: -0.5rem;
   width: calc(100% - var(--marker-size) - 0.5rem);
 }
 
+@supports not (-moz-appearance: none) {
+  .roadmap__list-category {
+    margin-left: -0.5rem;
+  }
+}
+
 .roadmap__item {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   color: var(--gray-blue);
   line-height: 23px;
   list-style-position: inside;
